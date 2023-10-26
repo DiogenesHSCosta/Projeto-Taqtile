@@ -1,0 +1,24 @@
+{
+  "name": "projeto-taqtile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiogenesHSCosta/Projeto-Taqtile.git"
+  },
+  "author": "Diógenes Costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiogenesHSCosta/Projeto-Taqtile/issues"
+  },
+  "homepage": "https://github.com/DiogenesHSCosta/Projeto-Taqtile#readme",
+  "dependencies": {
+    "graphql": "^16.8.1"
+  }
+}
