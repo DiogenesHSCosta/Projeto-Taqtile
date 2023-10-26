@@ -1,4 +1,4 @@
-import { Express } from "express"
+import Express from "express"
 import { buildSchema } from "graphql"
 import { graphqlHTTP } from "express-graphql"
 
@@ -10,10 +10,8 @@ const schema = buildSchema(`
 `)
 
 const root ={  
-    Query: {
-        hello: ()=> {
-            return "Hello Word!";
-        }
+    hello: ()=> {   
+        return "Hello Word!";
     }
 }
 
