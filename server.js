@@ -24,9 +24,6 @@ app.use("/", graphqlHTTP({
   })
 )
 
-console.log(root)
-
-
 const port = 4000
 app.listen(port, () =>{
     console.log(`API rodando: http://localhost:${port}`)
