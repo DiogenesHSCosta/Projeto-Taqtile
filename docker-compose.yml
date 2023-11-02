@@ -8,7 +8,7 @@ services:
     environment:
       - POSTGRES_USER=Admin
       - POSTGRES_PASSWORD=AdminPassword
-      - POSTGRES_DB=db
+      - POSTGRES_DB=dbTaqTile
 
   dbteste:
     image: postgres:latest
@@ -17,6 +17,6 @@ services:
     volumes:
       - ./db/dump:/app-db-dumps
     environment:
-      - POSTGRES_USER=Admin
-      - POSTGRES_PASSWORD=AdminPassword
-      - POSTGRES_DB=db
+      - POSTGRES_USER=AdminTeste
+      - POSTGRES_PASSWORD=AdminPasswordTeste
+      - POSTGRES_DB=dbTeste
