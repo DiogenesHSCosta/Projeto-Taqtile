@@ -1,7 +1,7 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { AppDataSource } from './data-source';
-import { User } from './entity/User';
+import { User } from './entity/user';
 
 const typeDefs = `#graphql
     type Query{
@@ -24,13 +24,13 @@ const server = new ApolloServer({
 
 AppDataSource.initialize()
   .then(async () => {
-    const user = new User();
-    user.name = 'João';
+    // const user = new User();
+    // user.name = 'João';
 
-    await AppDataSource.manager.save(user);
+    // await AppDataSource.manager.save(user);
 
-    const users = await AppDataSource.manager.find(User);
-    console.log(users);
+    // const users = await AppDataSource.manager.find(User);
+    // console.log(users);
 
     const { url } = await startStandaloneServer(server, {
       listen: { port: 4000 },
