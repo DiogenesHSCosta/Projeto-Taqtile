@@ -6,15 +6,15 @@ API project using CRUD concepts for a database.
 
 ## Environment and tools
 
-+Typescript
-+Node.js
-+GraphQL
-+Apollo Server
-+Eslint
-+Prettier
-+TypeORM
-+PostreSQL
-+docker
+- Typescript
+- Node.js
+- GraphQL
+- Apollo Server
+- Eslint
+- Prettier
+- TypeORM
+- PostreSQL
+- docker
 
 ## Steps to run and debug
 
