@@ -22,6 +22,6 @@ API project using CRUD concepts for a database.
 
 2. Use the command `git clone https://github.com/DiogenesHSCosta/Projeto-Taqtile.git`
 
-3. install the dependencies with the command `npm install`
+3. install the dependencies with the command `npm install` after the command `docker compose up -d` to configure docker containers
 
-4. To run the project, use `npm start`
+4. To run the project, use `docker compose up -d` after `npm start`
