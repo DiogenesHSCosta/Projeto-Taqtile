@@ -22,12 +22,6 @@ const server = new ApolloServer({
   resolvers,
 });
 
-const { url } = await startStandaloneServer(server, {
-  listen: { port: 4000 },
-});
-
-console.log(`API rodando: ${url}`);
-
 AppDataSource.initialize()
   .then(async () => {
     const user = new User();
@@ -37,5 +31,10 @@ AppDataSource.initialize()
 
     const users = await AppDataSource.manager.find(User);
     console.log(users);
+
+    const { url } = await startStandaloneServer(server, {
+      listen: { port: 4000 },
+    });
+    console.log(`API rodando: ${url}`);
   })
   .catch((error) => console.log(error));
