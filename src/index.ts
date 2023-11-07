@@ -24,13 +24,13 @@ const server = new ApolloServer({
 
 AppDataSource.initialize()
   .then(async () => {
-    // const user = new User();
-    // user.name = 'João';
+    const user = new User();
+    user.name = 'João';
 
-    // await AppDataSource.manager.save(user);
+    await AppDataSource.manager.save(user);
 
-    // const users = await AppDataSource.manager.find(User);
-    // console.log(users);
+    const users = await AppDataSource.manager.find(User);
+    console.log(users);
 
     const { url } = await startStandaloneServer(server, {
       listen: { port: 4000 },
