@@ -1,0 +1,22 @@
+services:
+  dblocal:
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./db/dump:/app-db-dumps
+    environment:
+      - POSTGRES_USER=Admin
+      - POSTGRES_PASSWORD=AdminPassword
+      - POSTGRES_DB=dbTaq
+
+  dbteste:
+    image: postgres:latest
+    ports:
+      - '5433:5432'
+    volumes:
+      - ./db/dump:/app-db-dumps
+    environment:
+      - POSTGRES_USER=Admin
+      - POSTGRES_PASSWORD=AdminPassword
+      - POSTGRES_DB=dbTaq
