@@ -7,17 +7,12 @@ const typeDefs = `#graphql
     }
 
     type Query{
-      hello:String
       users:[User]
     }
 `;
 
 const resolvers = {
-  Query: {
-    hello() {
-      return 'hello world👍';
-    },
-  },
+  Query: {},
 };
 
 export { typeDefs, resolvers };
