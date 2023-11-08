@@ -1,4 +1,4 @@
-const usuarios = [
+const teste = [
   {
     name: 'douglas',
     email: 'douglas@douglas',
@@ -9,10 +9,22 @@ const usuarios = [
 
 const typeDefs = `#graphql
     type User {
+      id: ID
+      name: String
+      email: String
+      birthDate: String
+    }
+
+    input UserInput {
+      id: ID
       name: String
       email: String
       password: String
       birthDate: String
+    }
+
+    type Mutation{
+      createUser(data: UserInput):User
     }
 
     type Query{
@@ -23,7 +35,12 @@ const typeDefs = `#graphql
 const resolvers = {
   Query: {
     users() {
-      return usuarios;
+      return teste;
+    },
+  },
+  Mutation: {
+    createUser(obj, { data }) {
+      return data;
     },
   },
 };
