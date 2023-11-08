@@ -1,8 +1,17 @@
+const usuarios = [
+  {
+    name: 'douglas',
+    email: 'douglas@douglas',
+    password: 'douglas123',
+    birthDate: '11-02-23',
+  },
+];
+
 const typeDefs = `#graphql
-    type User{
-      name: String,
-      email: String,
-      password: String,
+    type User {
+      name: String
+      email: String
+      password: String
       birthDate: String
     }
 
@@ -12,7 +21,11 @@ const typeDefs = `#graphql
 `;
 
 const resolvers = {
-  Query: {},
+  Query: {
+    users() {
+      return usuarios;
+    },
+  },
 };
 
 export { typeDefs, resolvers };

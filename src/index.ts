@@ -2,8 +2,7 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { AppDataSource } from './data-source';
 import { User } from './entity/user';
-import { typeDefs } from './graphql/schemas';
-import { resolvers } from './graphql/schemas';
+import { typeDefs, resolvers } from './graphql/schemas';
 
 const server = new ApolloServer({
   typeDefs,
