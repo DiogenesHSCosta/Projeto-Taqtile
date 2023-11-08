@@ -2,29 +2,15 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { AppDataSource } from './data-source';
 import { User } from './entity/user';
-
-const typeDefs = `#graphql
-    type User{
-      name: String,
-      email: String,
-      password: String,
-      birthDate: String
-    }
-    type Query{
-      users:[User]
-    }
-`;
-
-const resolvers = {
-  Query: {},
-};
+import { typeDefs } from './graphql/schemas';
+import { resolvers } from './graphql/schemas';
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
 
-async function initializeServer() {
+async function bootstrap() {
   const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },
   });
@@ -36,6 +22,6 @@ AppDataSource.initialize()
     const users = await AppDataSource.manager.find(User);
     console.log(users);
 
-    initializeServer();
+    bootstrap();
   })
   .catch((error) => console.log(error));
