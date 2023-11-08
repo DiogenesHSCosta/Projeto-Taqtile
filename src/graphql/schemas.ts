@@ -16,7 +16,6 @@ const typeDefs = `#graphql
     }
 
     input UserInput {
-      id: ID
       name: String
       email: String
       password: String
