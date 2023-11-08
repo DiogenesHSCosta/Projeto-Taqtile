@@ -1,11 +1,5 @@
-const teste = [
-  {
-    name: 'douglas',
-    email: 'douglas@douglas',
-    password: 'douglas123',
-    birthDate: '11-02-23',
-  },
-];
+import { AppDataSource } from '../data-source';
+import { User } from '../entity/user';
 
 const typeDefs = `#graphql
     type User {
@@ -16,7 +10,6 @@ const typeDefs = `#graphql
     }
 
     input UserInput {
-      id: ID
       name: String
       email: String
       password: String
@@ -35,7 +28,10 @@ const typeDefs = `#graphql
 const resolvers = {
   Query: {
     users() {
-      return teste;
+      async function findUsers() {
+        const users = await AppDataSource.manager.find(User);
+        return users;
+      }
     },
   },
   Mutation: {
