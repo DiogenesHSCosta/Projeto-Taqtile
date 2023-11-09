@@ -2,39 +2,26 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { AppDataSource } from './data-source';
 import { User } from './entity/user';
+import { typeDefs, resolvers } from './graphql/schemas';
 
-const typeDefs = `#graphql
-    type Query{
-        hello: String
-    }
-`;
+async function bootstrap() {
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+  });
 
-const resolvers = {
-  Query: {
-    hello() {
-      return 'hello world👍';
-    },
-  },
-};
+  const { url } = await startStandaloneServer(server, {
+    listen: { port: 4000 },
+  });
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
+  console.log(`API rodando: ${url}`);
+}
 
 AppDataSource.initialize()
   .then(async () => {
-    const user = new User();
-    user.name = 'João';
-
-    await AppDataSource.manager.save(user);
-
     const users = await AppDataSource.manager.find(User);
     console.log(users);
 
-    const { url } = await startStandaloneServer(server, {
-      listen: { port: 4000 },
-    });
-    console.log(`API rodando: ${url}`);
+    bootstrap();
   })
   .catch((error) => console.log(error));
