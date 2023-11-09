@@ -29,15 +29,24 @@ const resolvers = {
   Query: {
     users() {
       async () => {
-        const database = await AppDataSource.getRepository(User);
-        console.log(database);
-        return database;
+        const usersBd = await AppDataSource.manager.find(User);
+        return usersBd;
       };
     },
   },
 
   Mutation: {
-    createUser(obj, { data }) {
+    createUser: async (obj, { data }) => {
+      const newUser = new User();
+
+      newUser.name = data.name;
+      newUser.email = data.email;
+      newUser.password = data.password;
+      newUser.birthDate = data.birthDate;
+
+      await AppDataSource.manager.save(newUser);
+
+      console.log(data);
       return data;
     },
   },
