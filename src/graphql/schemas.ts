@@ -28,12 +28,14 @@ const typeDefs = `#graphql
 const resolvers = {
   Query: {
     users() {
-      async function findUsers() {
-        const users = await AppDataSource.manager.find(User);
-        return users;
-      }
+      async () => {
+        const database = await AppDataSource.getRepository(User);
+        console.log(database);
+        return database;
+      };
     },
   },
+
   Mutation: {
     createUser(obj, { data }) {
       return data;
