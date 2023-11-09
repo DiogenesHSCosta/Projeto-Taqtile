@@ -26,7 +26,7 @@ const typeDefs = `#graphql
       createUser(data: UserInput):User
     }
 
-    type Query{
+    type Query {
       users:[User]
     }
 `;
