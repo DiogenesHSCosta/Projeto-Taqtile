@@ -22,7 +22,7 @@ const typeDefs = `#graphql
       birthDate: String
     }
 
-    type Mutation{
+    type Mutation {
       createUser(data: UserInput):User
     }
 
