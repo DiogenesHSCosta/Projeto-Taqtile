@@ -19,9 +19,6 @@ async function bootstrap() {
 
 AppDataSource.initialize()
   .then(async () => {
-    const users = await AppDataSource.manager.find(User);
-    console.log(users);
-
     bootstrap();
   })
   .catch((error) => console.log(error));
