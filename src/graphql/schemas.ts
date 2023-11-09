@@ -27,11 +27,10 @@ const typeDefs = `#graphql
 
 const resolvers = {
   Query: {
-    users() {
-      async () => {
-        const usersBd = await AppDataSource.manager.find(User);
-        return usersBd;
-      };
+    users: async () => {
+      const usersBd = await AppDataSource.manager.find(User);
+      console.log(usersBd);
+      return usersBd;
     },
   },
 
