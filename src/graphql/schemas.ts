@@ -1,5 +1,6 @@
 import { AppDataSource } from '../data-source';
 import { User } from '../entity/user';
+import { checkEmail } from '../functions/validator/checkEmailExist';
 import { passwordValidator } from '../functions/validator/passwordValidator';
 
 const typeDefs = `#graphql
@@ -30,7 +31,6 @@ const resolvers = {
   Query: {
     users: async () => {
       const usersBd = await AppDataSource.manager.find(User);
-      console.log(usersBd);
       return usersBd;
     },
   },
@@ -38,6 +38,7 @@ const resolvers = {
   Mutation: {
     createUser: async (obj, { data }) => {
       passwordValidator(data.password);
+      await checkEmail(data.email);
       const newUser = new User();
 
       newUser.name = data.name;
