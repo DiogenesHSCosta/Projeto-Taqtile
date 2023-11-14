@@ -21,6 +21,7 @@
   "homepage": "https://github.com/DiogenesHSCosta/Projeto-Taqtile#readme",
   "dependencies": {
     "@apollo/server": "^4.9.5",
+    "bcrypt": "^5.1.1",
     "graphql": "^16.8.1",
     "pg": "^8.11.3",
     "reflect-metadata": "^0.1.13",
