@@ -37,13 +37,14 @@ const resolvers = {
 
   Mutation: {
     createUser: async (obj, { data }) => {
-      passwordValidator(data.password);
-      await checkEmail(data.email);
-      const newUser = new User();
+      const encryptPass = await passwordValidator(data.password);
 
+      await checkEmail(data.email);
+
+      const newUser = new User();
       newUser.name = data.name;
       newUser.email = data.email;
-      newUser.password = data.password;
+      newUser.password = encryptPass;
       newUser.birthDate = data.birthDate;
 
       await AppDataSource.manager.save(newUser);
